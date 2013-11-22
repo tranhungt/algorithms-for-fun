@@ -1,6 +1,6 @@
 #Ah.. the N-queens problem. :) Fun. :)
 #Run this ruby script directly. On the bottom, you can change the 'n' parameter
-
+# Will need to 'gem install colorize' for pretty colors
 require 'colorize'
 require 'set'
 def queens(size)
