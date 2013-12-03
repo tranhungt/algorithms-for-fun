@@ -4,7 +4,6 @@
 require 'colorize'
 require 'set'
 def queens(size)
-  @UNIVERSAL = 0
   @board = create_board(size)
   @size = size
   count = @size
@@ -34,16 +33,14 @@ def place_queens(board, count, y_arr, x_arr, x)
   end
 
   traversal_excludes(y_arr).each do |y|
-    # traversal_excludes(x_arr).each do |x|
-      if diag_matches?(y, x, y_arr, x_arr) == false
-        test_board = Marshal.load(Marshal.dump(board))
-        test_board[y][x] = 'X'
-        new_x_arr = (x_arr.dup << x)
-        new_y_arr = (y_arr.dup << y)
+    if diag_matches?(y, x, y_arr, x_arr) == false
+      test_board = Marshal.load(Marshal.dump(board))
+      test_board[y][x] = 'X'
+      new_x_arr = (x_arr.dup << x)
+      new_y_arr = (y_arr.dup << y)
 
-        place_queens(test_board,count - 1,new_y_arr, new_x_arr, x + 1)
-      end   
-    # end
+      place_queens(test_board,count - 1,new_y_arr, new_x_arr, x + 1)
+    end   
   end
 end
 
