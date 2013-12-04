@@ -1,6 +1,11 @@
 #Ah.. the N-queens problem. :) Fun. :)
+# Finds all the board configurations of nxn chess board with n-queens.
+#No queens can attach each other, that is, they will never be on the same 
+# horizontal, vertical, or diagonal.
+
 #Run this ruby script directly. On the bottom, you can change the 'n' parameter
 # Will need to 'gem install colorize' for pretty colors
+
 require 'colorize'
 require 'set'
 def queens(size)

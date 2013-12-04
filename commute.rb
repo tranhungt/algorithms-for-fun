@@ -4,7 +4,7 @@
 # 5
 # 6
 # 4
-
+#Not done
 def distance(coord1, coord2)
   x1,y1 = coord1
   x2,y2 = coord2

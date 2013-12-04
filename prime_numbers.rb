@@ -1,3 +1,5 @@
+#Finds all primes under n
+
 def primes(n)
   arr = (0..n).to_a
   arr[0] = nil;
@@ -20,3 +22,4 @@ File.open(ARGV[0]).each do | number |
     puts primes(number)
   end
 end
+
