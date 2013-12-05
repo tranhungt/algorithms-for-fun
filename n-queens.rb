@@ -81,5 +81,7 @@ end
 
 
 nqueens = NQueens.new(8)
+time = Time.now
 nqueens.make_queens_boards
 nqueens.display_final_boards
+puts "Computation took #{Time.now - time}s"
