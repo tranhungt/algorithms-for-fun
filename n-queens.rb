@@ -1,6 +1,6 @@
 #Ah.. the N-queens problem. :) Fun. :)
 # Finds all the board configurations of nxn chess board with n-queens.
-#No queens can attach each other, that is, they will never be on the same 
+#No queens can attack each other, that is, they will never be on the same 
 # horizontal, vertical, or diagonal.
 
 #Run this ruby script directly. On the bottom, you can change the 'n' parameter
@@ -79,8 +79,8 @@ class NQueens
   end
 end
 
-
-nqueens = NQueens.new(8)
+n = 8
+nqueens = NQueens.new(n)
 time = Time.now
 nqueens.make_queens_boards
 nqueens.display_final_boards
