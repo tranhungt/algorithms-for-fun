@@ -1,3 +1,5 @@
+#as a coin machine, make change using the least number of coins
+
 def make_change(amount, coins = [1, 5, 10, 25])
   changes = (0..amount).to_a
   changes[0] = []

@@ -1,3 +1,5 @@
+#finds the longest contiguous increasing subsequence in a sequence of numbers
+
 def longest_subsequence(sequence)
   p sequence
   sequence.map!{|num| [num, [num]]}

@@ -1,3 +1,7 @@
+# an nxn board with apples randomly scattered on each square
+# collect max amount of apples if you can only move right or down,
+# moving form 0,0 to n,n
+
 def get_max_apples(board)
   puts "initial board"
   display_board(board)
