@@ -2,10 +2,11 @@
 #you want the most value for your carrying capacity
 @iterations = 0
 def get_max_value(capacity, items, optimal_carrying = [])
+  return optimal_carrying[capacity] if optimal_carrying[capacity]
   possible_takes = items.select{|item| item[:weight] <= capacity}
-  possible_takes.map do |item|
+  optimal_carrying[capacity] = possible_takes.map do |item|
     @iterations += 1
-    item[:value] + get_max_value(capacity - item[:weight], items)
+    item[:value] + get_max_value(capacity - item[:weight], items, optimal_carrying)
   end.max || 0
 end
 
