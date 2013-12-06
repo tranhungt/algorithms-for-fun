@@ -1,4 +1,5 @@
-#finds the longest contiguous increasing subsequence in a sequence of numbers
+#finds the longest increasing subsequence (not necessarily contiguous)
+# in a sequence of numbers
 
 def longest_subsequence(sequence)
   p sequence
