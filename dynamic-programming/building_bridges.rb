@@ -12,10 +12,7 @@ def build_bridges(north, south)
   north.each do |val|
     south_index << south_map[val] + 1
   end
-  # p south_index
-  chosen_indexes = longest_subsequence(south_index)
-  # p chosen_indexes
-  puts chosen_indexes.map{|pos| south[pos - 1]}.sort
+  p longest_subsequence(south_index)
 
 end
 
@@ -25,7 +22,7 @@ def longest_subsequence(sequence)
   sequence.each_with_index do |value, curr_index|
     num, sub = value
     prev_subs = []
-    0.upto(curr_index) do |k|
+    curr_index.downto(0) do |k|
       if sequence[k][0] < num
         prev_subs << sequence[k][1]
       end
@@ -44,26 +41,16 @@ end
 
 def start
   bridges = Hash.new { |hash, key| hash[key] = [] }
-  File.open(ARGV[0]).each_line do |line|
+  File.open(file).each_line do |line|
     data = line.chomp.split(': ')
     data[1] = data[1][2...-2].split('], [')
     data[1].each do |pos|
       pos = pos.split(',').map{|p| p.to_f}
-      bridges[data[0].to_i] << pos
+      bridges[data[0]] << pos
     end
   end
-  east_cities = []
-  west_cities = []
-  bridges.each do |city_number, coords|
-    east, west = coords
-    east_cities << {city_number => east}
-    west_cities << {city_number => west}
-  end
-  east_cities.sort!{|a, b| b.values.first.first <=> a.values.first.first}.map!{|city| city.keys.first}
-  west_cities.sort!{|a, b| b.values.first.first <=> a.values.first.first}.map!{|city| city.keys.first}
-  # p east_cities
-  # p west_cities
-  build_bridges(east_cities, west_cities)
+  bridges
+  # build_bridges(north, south)
 end
 
 
